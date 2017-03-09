@@ -1,0 +1,43 @@
+<div class="row">
+  <div ng-cloak class="jumbotron col-md-4 col-md-offset-4 ng-cloak">
+    <div ng-cloak class="ng-cloak">
+        <div class="alert alert-info" role="alert">
+          <span class="glyphicon glyphicon-info-sign"></span>
+          <strong>Environment:</strong>
+          {{credentials.environment}}
+        </div>
+      	<h2>PP User</h2>
+        <hr/>
+        <form ng-submit="submit()">
+          <div class="form-group">
+            <label for="elateral-userlogon">User Logon UID</label>
+            <input ng-model="credentials.userlogonuid" type="text" class="form-control" id="elateral-userlogon" placeholder="User Logon UID">
+          </div>
+          <div class="form-group">
+            <label for="elateral-vendor">Vendor</label>
+            <input ng-model="credentials.vendor" type="text" class="form-control" id="elateral-vendor" placeholder="Vendor">
+          </div>
+          <div class="form-group">
+            <label for="elateral-password">Password</label>
+            <input ng-model="credentials.password" type="password" class="form-control" id="elateral-password" placeholder="Password">
+          </div>
+          <button ng-show="!loading" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>&nbsp;Login</button>
+        </form>
+
+        <div ng-show="erresponse">
+          <hr/>
+          <div class="alert alert-danger" role="alert">
+              <strong>URL:&nbsp;</strong>{{erresponse.uri}}<br/>
+              <strong>Status:&nbsp;</strong>{{erresponse.status}}<br/>
+              <strong>Status Text:&nbsp;</strong>{{erresponse.text}}<br/>
+          </div>
+        </div>
+    </div>
+
+      <div ng-show="loading" class="col-md-4 col-md-offset-4 ng-cloak">
+        <div class="loader">Loading...</div>
+      </div>
+
+  </div>
+</div>
+

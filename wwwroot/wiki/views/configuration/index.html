@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<form ng-submit="submit()">
+			<div class="alert alert-warning" role="alert">
+				<span class="glyphicon glyphicon-warning-sign"></span>
+		        <strong>Session will be reseted on each environment change</strong>
+		    </div>
+			<div class="form-group">
+				<label for="environment">Environment</label>
+				<input type="url" ng-model="model.environment" class="form-control" id="environment" placeholder="example: https://azure-env0XX.elateral.com">
+			</div>
+			<div class="form-group">
+			   <label for="config-environment">Environment List</label>
+			   <select2dd id="config-environment" list="model.ddvalues" ddid="'config-environment'" placeholder="'Known Environments'" selected="model.environment">
+			              </select2dd>
+			</div>        
+		  <button type="submit" class="btn btn-primary">Update</button>
+		</form>
+	</div>
+</div>

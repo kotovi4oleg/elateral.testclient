@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title">Production Job</h3></div>
+        <div class="panel-body">
+          <form ng-submit="submit()" ng-model="model">
+
+            <div class="form-group">
+              <label for="hilton-status">Status</label>
+              <select2dd ng-chnage='prettyprint()' id="hilton-status" list="model.ddvalues" ddid="'hilton-status'" placeholder="'Choose Status'" selected="model.status">
+              </select2dd>
+            </div>
+
+            <div class="form-group">
+              <label for="hilton-jobbumber">Job Number</label>
+              <input ng-change="prettyprint()" ng-model="model.jobnumber" type="text" class="form-control" id="hilton-jobbumber" placeholder="Job Number">
+            </div>
+
+            <div class="well">
+
+              <div class="form-group">
+                <label for="hilton-price-amount">Amount</label>
+                <input ng-change="prettyprint()" type="text" ng-model="model.price.amount" class="form-control" id="hilton-price-amount" placeholder="Amount">
+              </div>
+
+              <div class="form-group">
+                <label for="hilton-price-currencycode">Currency Code</label>
+                <input ng-change="prettyprint()" type="text"  ng-model="model.price.ccode" class="form-control" id="hilton-price-currencycode" placeholder="Currency Code">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="hilton-couriername">Courier Name</label>
+              <input ng-change="prettyprint()" ng-model="model.couriername" type="text" class="form-control" id="hilton-couriername" placeholder="Courier Name">
+            </div>
+
+            <div class="form-group">
+              <label for="hilton-courierurl">Courier Url</label>
+              <input ng-change="prettyprint()" ng-model="model.courierurl" type="text" class="form-control" id="hilton-courierurl" placeholder="Courier Url">
+            </div>
+
+            <div class="form-group">
+              <label for="hilton-airwaybillnumber">Airway Bill Number</label>
+              <input ng-change="prettyprint()" ng-model="model.airwaybillnumber" type="text" class="form-control" id="hilton-airwaybillnumber" placeholder="Airway Bill Number">
+            </div>
+
+            <div class="form-group">
+              <label for="hilton-comments">Comments</label>
+              <textarea ng-change="prettyprint()" ng-model="model.comments" class="form-control" id="hilton-comments" placeholder="Comments">
+              </textarea>
+            </div>
+
+
+            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="button" ng-click="reset()" class="btn btn-danger">Reset</button>
+          </form>
+        </div>
+    </div>  
+  </div>
+
+  <div ng-show="json" class="col-md-5 col-md-offset-1">
+    <div class="form-group">
+      <label for="hilton-orderitemkey">Order Key</label>
+      <input ng-change="prettyprint()" ng-model="privatemodel.orderitemkey" type="text" class="form-control" id="hilton-orderitemkey" placeholder="Order Key">
+    </div>
+    <hr>
+    <h2>Request JSON</h2>
+    <pre>{{json}}</pre>
+  </div>
+
+  <div ng-show="model.loading" class="col-md-1 col-md-offset-3">
+    <div class="loader">Loading...</div>
+  </div>
+
+  <div ng-show="model.response && !model.loading" class="col-md-5 col-md-offset-1">
+    <hr/>
+    <h2>Response</h2>
+    <div>
+      <div ng-show="model.errors" class="alert alert-danger" role="alert">
+            <strong>URL:&nbsp;</strong>{{model.errors.uri}}<br/>
+            <strong>Status Code:&nbsp;</strong>{{model.errors.status}}<br/>
+            <strong>Status Text:&nbsp;</strong>{{model.errors.text}}<br/>
+            <strong>Http Method:&nbsp;</strong>{{model.errors.httpmethod}}<br/>
+        </div>
+        <div class="well">
+          <pre>{{model.response}}</pre>
+        </div>
+    </div>
+  </div>
+
+</div>
